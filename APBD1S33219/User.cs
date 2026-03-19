@@ -16,4 +16,12 @@ public class User
         Surname = surname;
         UserType = userType;
     }
+
+    public User(User other)
+    {
+        Id = other.Id;
+        Name = other.Name;
+        Surname = other.Surname;
+        UserType = other.UserType;
+    }
 }

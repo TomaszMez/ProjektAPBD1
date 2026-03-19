@@ -5,22 +5,22 @@ public class Rental
     public User RUser { get; }
     public Device RDevice { get; }
     public DateTime RentalDate { get; }
-    public TimeSpan RentalDuration { get; }
-    public DateTime? ReturnDate { get; private set; }
+    public DateTime AgreedReturnDate { get; }
+    public DateTime? ActualReturnDate { get; private set; }
     public bool? IsOnTime { get; private set; }
 
-    public Rental(User user, Device device, DateTime rentalDate, TimeSpan rentalDuration)
+    public Rental(User user, Device device, DateTime rentalDate, DateTime agreedReturnDate)
     {
         RUser = user;
         RDevice = device;
         RentalDate = rentalDate;
-        RentalDuration = rentalDuration;
+        AgreedReturnDate = agreedReturnDate;
     }
 
     public void returnDevice()
     {
-        ReturnDate = DateTime.Now;
-        if (ReturnDate > RentalDate + RentalDuration) IsOnTime = false;
+        ActualReturnDate = DateTime.Now;
+        if (ActualReturnDate > AgreedReturnDate) IsOnTime = false;
         else IsOnTime = true;
     }
     
