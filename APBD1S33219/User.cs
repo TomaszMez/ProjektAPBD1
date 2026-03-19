@@ -24,4 +24,9 @@ public class User
         Surname = other.Surname;
         UserType = other.UserType;
     }
+
+    public override string ToString()
+    {
+        return $"{Id} {Name} {Surname} {UserType}";
+    }
 }

@@ -17,9 +17,16 @@ public static class UserManager
         _users.Add(user);
     }
 
-    public static void RemoveUserAt(int index)
+    public static void RemoveUserById(int id)
     {
-        _users.RemoveAt(index);
+        foreach (User user in _users)
+        {
+            if (user.Id == id)
+            {
+                _users.Remove(user);
+                return;
+            }
+        }
     }
     
     public static List<User> GetUsersCopy()
